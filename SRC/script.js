@@ -6,9 +6,8 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz"
 var specialch = "!@#$%^&*()_+[]{},.<>-?~"
 var numbers = "1234567890"
 
-var characters = "";
-
 function generatePassword(){
+  var characters = "";
   var passlength=0
   while (passlength<8||passlength>128){
     passlength = prompt("Choose the length of your password.")
