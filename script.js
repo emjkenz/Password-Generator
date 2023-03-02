@@ -6,9 +6,12 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz"
 var specialch = "!@#$%^&*()_+[]{},.<>-?~"
 var numbers = "1234567890"
 
+//Function to generate a password and specify password criteria
 function generatePassword(){
+  //reset characters to default
   var characters = "";
   var passlength=0
+  //Stops user from progressing unless have a password between certain parameters
   while (passlength<8||passlength>128){
     passlength = prompt("Choose the length of your password.")
     if (passlength<8||passlength>128){
@@ -16,6 +19,8 @@ function generatePassword(){
     }
   }
   var lowercase,uppercase,numeric,special = false
+
+//Stops the user from progressing unless they select a character set
   while(!lowercase && !uppercase && !numeric && !special){
     lowercase = confirm("Do you want to include lowercase characters?")
     uppercase = confirm("Do you want to include uppercase characters?")
@@ -25,14 +30,17 @@ function generatePassword(){
       alert ("At least 1 character set is needed.")
   }
 }
+//Add character set to characters variable
   if (lowercase) characters+=alphabet
   if (uppercase) characters+=alphabet.toUpperCase()
   if (numeric) characters+=numbers
   if (special) characters+=specialch
   var newpassword=""
+  //Generates random password based on user selected options
   for (var index = 0; index < passlength; index++) {  
     newpassword += characters [Math.floor(Math.random()*characters.length)]
   }
+  //Returns password to password variable
   return newpassword
 }
 
